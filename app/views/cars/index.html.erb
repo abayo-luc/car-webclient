@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Manufacturer</th>
+    <th>ID Number</th>
+  </tr>
+  <% @cars.each do |car| %>
+  <tr>
+    <td><%= car["manufacturer"]%></td>
+    <td><%= car["identification_number"]%></td>
+  </tr>
+  <% end %>
+</table>
