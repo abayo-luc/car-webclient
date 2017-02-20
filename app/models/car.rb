@@ -19,10 +19,26 @@ class Car
     end
     return cars
   end
-  def self.create
+  def self.create(params)
     car_params = Unirest.post("http://localhost:3000/api/v2/new.json",
       :headers => {"accept" => "application/json"},
-      :parameters => {:manufacturer => params[:manufacturer], :identification_number => params[:identification_number]}).body
+      :parameters => params).body
     Car.new(car_params)
+  end
+
+  def edit
+    @car_id = Unirest.get("http://localhost:3000/api/v2/cars/id.json").body
+    Car.new(car_id)
+  end
+
+  def self.update(edit_params)
+    @car_params_hash = Unirest.patch("http://localhost:3000/api/v2/cars/#{@car_id}.json",
+      :headers => {"accept" => "application/json"},
+      :parameters => edit_params).body
+    Car.new(@car_params_hash)
+  end
+
+  def self.delete(id)
+      car = Unirest.delete("http://localhost:3000/api/v2/cars/#{id}.json").body
   end
 end

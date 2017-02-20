@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   post "/cars", to:'cars#create'
   get "/cars/:id", to:'cars#show'
   get "/cars/:id/edit", to:'cars#edit'
-  patch "/cars/:id", to:'cars#update'
+  patch "/cars/:id/edit", to:'cars#update'
   delete "/cars/:id", to:'cars#destroy'
 end
