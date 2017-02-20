@@ -4,7 +4,8 @@
     <th>ID Number</th>
   </tr>
   <tr>
-    <td><%= @car["manufacturer"]%></td>
-    <td><%= @car["identification_number"]%></td>
+    <td><%= @car.manufacturer %></td>
+    <td><%= @car.identification_number%></td>
   </tr>
 </table>
+<%= button_to "Delete", "/cars/#{@car.id}", method: :delete %>

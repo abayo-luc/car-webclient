@@ -1,0 +1,4 @@
+<%= form_tag "/cars/#{@car['id']}", method: :patch %>
+  Manufacturer:<input type="text" name="manufacturer" value="<%= @car['manufacturer']%>">
+  Car ID:<input type="text" name="identification_number" value="<%= @car['identification_number']%>">
+  <button class="submit"> Submit</button>
