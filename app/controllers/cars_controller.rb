@@ -19,8 +19,8 @@ class CarsController < ApplicationController
   end
   
   def update
-    @car_id = params[:id]
-    @car = Car.update({manufacturer: params[:manufacturer], identification_number: params[:identification_number]})
+    @car = Car.find(params[:id])
+    @car.update({id: params[:id], manufacturer: params[:manufacturer], identification_number: params[:identification_number]})
 
     redirect_to "/cars/#{@car.id}"
   end

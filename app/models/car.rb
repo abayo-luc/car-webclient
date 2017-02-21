@@ -31,8 +31,8 @@ class Car
     Car.new(car_id)
   end
 
-  def self.update(edit_params)
-    @car_params_hash = Unirest.patch("http://localhost:3000/api/v2/cars/#{@car_id}.json",
+  def update(edit_params)
+    @car_params_hash = Unirest.patch("http://localhost:3000/api/v2/cars/#{id}.json",
       :headers => {"accept" => "application/json"},
       :parameters => edit_params).body
     Car.new(@car_params_hash)
